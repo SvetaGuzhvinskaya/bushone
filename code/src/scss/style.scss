@@ -1,0 +1,48 @@
+@import "mixins";
+@import "variables";
+@import "components";
+@import "fonts";
+@import "normalize";
+@import "form";
+@import "base";
+@import "header";
+@import "footer";
+@import "main";
+
+.visib-md,
+.visib-sm,
+.visib-xs {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: $md) {
+  .visib-md {
+    display: block;
+  }
+
+  .hidden-md {
+    display: none;
+  }
+}
+
+@media (max-width: $sm) {
+  .visib-sm {
+    display: block;
+  }
+}
+
+@media (max-width: $xs) {
+  .visib-xs {
+    display: block;
+  }
+
+  .hidden-xs {
+    display: none;
+  }
+}
+
+

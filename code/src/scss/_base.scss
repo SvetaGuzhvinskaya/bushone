@@ -1,0 +1,311 @@
+@at-root {
+  :root {
+    --swiper-pagination-bottom: 23px;
+    --swiper-pagination-bullet-horizontal-gap: 20px;
+    --swiper-pagination-bullet-width: 10px;
+    --swiper-pagination-bullet-height: 10px;
+    --swiper-theme-color: #{$color-white};
+    --swiper-pagination-bullet-inactive-color: #{$color-white};
+    --swiper-pagination-bullet-inactive-opacity: .4;
+    --swiper-navigation-sides-offset: 0;
+    --swiper-navigation-top-offset: 0;
+    --swiper-navigation-size: 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  &.with-fancybox {
+    margin-right: 17px;
+    overflow: hidden;
+  }
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: $font-family-lato300;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
+  color: $color-dark;
+  overflow-x: hidden;
+
+  &.menu-is-open,
+  &.compensate-for-scrollbar {
+    overflow: hidden;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.icon {
+  display: block;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 $padding-md;
+  max-width: 1170px;
+  z-index: 10;
+}
+
+.section {
+  margin-bottom: 2px;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-family: $font-family-merri900;
+  font-size: 48px;
+  font-weight: normal;
+  line-height: 66px;
+}
+
+.description {
+  margin: 0 0 12px;
+}
+
+.link {
+  display: inline-block;
+  color: $color-blue;
+  text-decoration: none;
+  @include transition;
+
+  &:focus {
+    color: $color-blue-focus;
+  }
+
+  &:hover {
+    color: $color-blue-hover;
+  }
+
+  &:active {
+    color: $color-blue-active;
+  }
+}
+
+.info-list {
+  @include flex(row, center, flex-start);
+  font-family: $font-family-lato400;
+  font-size: 13px;
+  line-height: 17px;
+  color: $color-black;
+  &__item {
+    @include flex(row, center, flex-start);
+    white-space: nowrap;
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+  a {
+    color: $color-black;
+    text-decoration: none;
+    &:hover {
+      color: $color-blue-hover;
+    }
+    &:focus {
+      color: $color-blue-focus;
+    }
+    &:active {
+      color: $color-blue-active;
+    }
+  }
+  &__icon{
+    margin-right: 17px;
+    height: 17px;
+    fill: $color-blue;
+    transform: translate(0, 2px);
+    &--time {
+      width: 17px;
+    }
+    &--mail {
+      width: 22px;
+      &-lg {
+        width: 39px;
+        height: 30px;
+      }
+    }
+    &--local {
+      width: 13px;
+    }
+  }
+  &--right {
+    justify-content: flex-end;
+  }
+  &--white {
+    font-family: $font-family-lato300;
+    font-size: 21px;
+    line-height: 29px;
+    color: $color-white;
+    & *{
+      fill: $color-white;
+    }
+    a {
+      color: $color-white;
+    }
+  }
+}
+
+.fancybox {
+  &__content {
+    cursor: default;
+
+    &>.f-button {
+      top: 13px;
+      right: 13px;
+      svg {
+        width: 26px;
+        height: 26px;
+        stroke: $color-dark;
+        stroke-width: 3px;
+      }
+      &:focus {
+        svg {
+          stroke: $color-blue-focus;
+        }
+      }
+      &:hover {
+        svg {
+          stroke: $color-blue-hover;
+        }
+      }
+      &:active {
+        svg {
+          stroke: $color-blue-active;
+        }
+      }
+
+      &.is-close-btn {
+        top: 13px;
+        right: 13px;
+        opacity: 1;
+      }
+    }
+  }
+}
+.is-compact {
+  .fancybox__content {
+    &> .f-button {
+      &.is-close-btn {
+        top: 13px;
+        right: 13px;
+        &:hover {
+          background: transparent;
+        }
+      }
+    }
+  }
+}
+.f-button {
+  background: transparent;
+  opacity: 1;
+  svg {
+    width: 26px;
+    height: 26px;
+    stroke: $color-dark;
+    stroke-width: 3px;
+  }
+  &:hover {
+    background: transparent;
+  }
+}
+
+.is-draggable {
+  .fancybox__content {
+    cursor: default;
+  }
+}
+
+@media (max-width: $md) {
+  html {
+    &.with-fancybox {
+      margin-right: 0;
+    }
+  }
+  .container {
+    padding-left: $padding-md;
+    padding-right: $padding-md;
+  }
+}
+
+@media (max-width: $sm) {
+  .container {
+    padding-left: $padding-sm;
+    padding-right: $padding-sm;
+    max-width: 728px;
+  }
+}
+
+@media (max-width: $xs) {
+  .container {
+    max-width: 580px;
+  }
+  .title {
+    margin-bottom: 20px;
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .info-list {
+    flex-wrap: wrap;
+    font-size: 11px;
+    line-height: 12px;
+    &__item {
+      margin-bottom: 5px;
+      &:not(:last-child),
+      &:last-child {
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+    }
+    &__icon{
+      margin-right: 10px;
+      &--mail {
+        &-lg {
+          width: 35px;
+          height: 27px;
+        }
+      }
+    }
+    &--right {
+      margin-bottom: 10px;
+      justify-content: flex-end;
+    }
+    &--white {
+      font-size: 18px;
+      line-height: 25px;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+include pug/mixins/svg
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title BushOne
+    link(rel="shortcut icon" href="images/favicon.ico")
+    link(rel="stylesheet", href="css/style.min.css")
+    link(rel="preload" href="fonts/lato-light.woff2" as="font")
+    link(rel="preload" href="fonts/lato-regular.woff2" as="font")
+    link(rel="preload" href="fonts/lato-bold.woff2" as="font")
+    link(rel="preload" href="fonts/merriweather-black.woff2" as="font")
+  body
+    - var mainMenu = ['Главная', 'Услуги', 'Кейсы', 'О компании', 'Контакты']
+    header.header
+      .header__center
+        .container.header__grid
+          a.logo.header__logo(href="/")
+            img.logo__img(src="images/logo.svg" alt="BushOne")
+          ul.info-list.info-list--right.header__info
+            li.info-list__item
+              a(href="tel:+71112223344" target="_blank") 8 (111) 222-33-44
+            li.info-list__item
+              +svg("icon-time", "info-list__icon info-list__icon--time")
+              | Пн-Пт 10:00-18:00
+            li.info-list__item
+              +svg("icon-mail", "info-list__icon info-list__icon--mail")
+              a(href="mailto:order@buhone.ru" target="_blank") order@buhone.ru
+            li.info-list__item
+              +svg("icon-local", "info-list__icon info-list__icon--local")
+              | Невский пр. 130
+          nav.main-nav.header__nav
+            .btn-menu.main-nav__btn.visib-sm.js-open
+              .btn-menu__line
+            ul.main-nav__list.js-menu
+              each item in mainMenu
+                li.main-nav__item
+                  a.main-nav__link(href="#")= item
+
+    main.main
+      h1.title.hidden BushOne - Бухгалтерские услуги
+      section.section.section-hero.slider-hero.js-slider-hero
+        .swiper-wrapper
+          .swiper-slide.slider-hero__item(style="background-image: url('images/img-main.jpg');")
+            .container.slider-hero__txt
+              .slider-hero__entry
+                h2.title.slider-hero__title Бухгалтерские услуги в Санкт-Петербурге
+                a.btn(href="#") Наша презентация
+          .swiper-slide.slider-hero__item(style="background-image: url('images/img-moskva.jpg');")
+            .container.slider-hero__txt
+              .slider-hero__entry
+                h2.title.slider-hero__title Бухгалтерские услуги в Москве
+                a.btn(href="#") Наша презентация
+          .swiper-slide.slider-hero__item(style="background-image: url('images/img-voroneg.jpg');")
+            .container.slider-hero__txt
+              .slider-hero__entry
+                h2.title.slider-hero__title Бухгалтерские услуги в Воронеже
+                a.btn(href="#") Наша презентация
+          .swiper-slide.slider-hero__item(style="background-image: url('images/img-krasnodar.jpg');")
+            .container.slider-hero__txt
+              .slider-hero__entry
+                h2.title.slider-hero__title Бухгалтерские услуги в Краснодаре
+                a.btn(href="#") Наша презентация
+        .container
+          .swiper-pagination.slider-hero__pagination
+          .slider-hero__nav
+            button.swiper-button-prev.btn-arrow.btn-arrow--prev
+            button.swiper-button-next.btn-arrow.btn-arrow--next
+      section.section.section-contacts
+        .container.section-contacts__grid
+          .section-contacts__col
+            h2.title Связь с нами
+            p.description.section-contacts__description У вас остались вопросы? Напишите нам - мы ответим в ближайшее время!
+            ul.info-list.info-list--white.section-contacts__info
+              li.info-list__item
+                a(href="tel:+71112223344" target="_blank") +7 (111) 222-33-44
+              li.info-list__item
+                +svg("icon-mail", "info-list__icon info-list__icon--mail-lg")
+                a(href="mailto:order@buhone.ru" target="_blank") order@buhone.ru
+          .section-contacts__col
+            form#contacts-form.contacts-form(action="POST")
+              .contacts-form__grid
+                .form-control.contacts-form__col
+                  label.form-label(for="name-first") Имя
+                  input#name-first.input(type="text" placeholder="Иван" name="name-first" required)
+                .form-control.contacts-form__col
+                  label.form-label(for="name-last")  Фамилия
+                  input#name-last.input(type="text" placeholder="Иванов " name="name-last" required)
+                .form-control.form-control--lg.contacts-form__col.contacts-form__col--full
+                  label.form-label(for="massage")  Сообщение
+                  textarea#massage.textarea(placeholder="Ваше сообщение" name="massage" required)
+                .form-control.form-control--right.contacts-form__col.contacts-form__col--full
+                  button.btn Отправить сообщение
+    footer.footer
+      .container.footer__row
+        p.footer__col 2019 (с) Все права защищены.
+          a(href="http://бухоне.ру" target="_blank") БухОне.ру
+        p.footer__col Разработано:
+          a(href="http://buhone.ру" target="_blank") BuhOne
+    script(src="resources/fancybox.umd.js")
+    script(src="js/app.js")

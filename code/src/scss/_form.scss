@@ -1,0 +1,207 @@
+.form-control {
+  margin: 0 0 34px;
+  position: relative;
+  &--right {
+    text-align: right;
+  }
+
+  &--lg {
+    margin-bottom: 50px;
+  }
+}
+
+.form-label {
+  display: block;
+  font-family: $font-family-lato400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+input {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.input,
+.textarea {
+  display: inline-block;
+  padding: 8px 0;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 0;
+  font-family: $font-family-lato300;
+  font-size: 21px;
+  line-height: 29px;
+  color: $color-grey;
+  border: none;
+  border-bottom: 1px solid $color-white;
+  @include transition;
+  outline: none;
+
+  &::placeholder {
+    color: $color-grey;
+    opacity: 1;
+  }
+
+  &:focus {
+    border-color: $color-blue;
+  }
+
+  &:hover {
+    border-color: $color-grey;
+  }
+
+  &:active {
+    border-color: $color-blue;
+  }
+}
+
+.just-validate-error-field {
+  border-color: $color-red;
+}
+
+.just-validate-error-label {
+  position: absolute;
+  font-size: 12px;
+  line-height: 16px;
+  color: $color-red !important;
+}
+
+.textarea {
+  height: 115px;
+  resize: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 17px 18px 18px;
+  min-width: 270px;
+  height: auto;
+  background-color: $color-blue;
+  border-radius: 0;
+  font-family: $font-family-lato400;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: $color-white;
+  opacity: 1;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  @include transition;
+
+  &:focus {
+    background-color: $color-blue-hover;
+  }
+
+  &:hover {
+    background-color: $color-blue-hover;
+  }
+
+  &:active {
+    background-color: $color-blue-active;
+  }
+}
+
+.btn-arrow {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-color: rgba($color: $color-white, $alpha: .2);
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  @include transition;
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -6px 0 0 -8px;
+    @include arrow(to right, 10px, 10px, 1px, $color-white);
+    @include transition;
+  }
+
+  &--prev {
+    &:before {
+      margin-left: -2px;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &.swiper-button-disabled {
+    &:before {
+      border-color: $color-grey;
+    }
+  }
+
+  &:hover {
+    background-color: rgba($color: $color-white, $alpha: .4);
+  }
+}
+
+.swiper-pagination {
+  top: auto;
+  bottom: 0;
+}
+
+.btn-close {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: $color-grey;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    width: 1px;
+    height: 12px;
+    background-color: $color-white;
+    content: '';
+  }
+
+  &::before {
+    transform: translate(-50%, calc(50% - 2px)) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, calc(50% - 2px)) rotate(-45deg);
+  }
+}
+
+@media (max-width: $md) {}
+
+@media (max-width: $sm) {}
+
+@media (max-width: $xs) {
+  .input,
+  .textarea {
+    font-size: 18px;
+    line-height: 25px;
+    &--right {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+  .form-control {
+    &--sm {
+      margin-bottom: 14px;
+    }
+  }
+
+  .btn {
+    min-width: 100%;
+  }
+}
